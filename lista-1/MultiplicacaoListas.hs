@@ -1,6 +1,8 @@
 module Main where
 
 mul2 :: [Int] -> [Int] -> [Int]
+-- returns an int array resulting from multiplying
+-- two other given arrays 
 mul2 [] [] = []
 mul2 [] (b:bs) = [0] ++ mul2 [] (bs)
 mul2 (a:as) [] = [0] ++ mul2 (as) []

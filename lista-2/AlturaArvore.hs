@@ -10,7 +10,7 @@ maxi x y | x > y     = x
 alturaArvore :: Tree t -> Int
 -- return the height of a tree
 alturaArvore Nilt = 0
-alturaArvore (Node n rtree ltree) = 1 + (maxi (alturaArvore rtree) (alturaArvore ltree))
+alturaArvore (Node n ltree rtree) = 1 + (maxi (alturaArvore ltree) (alturaArvore rtree))
 
 main = do 
        a <- getLine

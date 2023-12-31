@@ -3,14 +3,17 @@ data Tree t = Nilt
             deriving (Read)
 
 checkTree1 :: Ord t => Tree t -> t -> Bool
+-- check if left subtree is a BST
 checkTree1 Nilt key = True
 checkTree1 (Node n subtree1 subtree2) key = (n < key) && (checkTree1 subtree1 key) && (checkTree1 subtree2 key) 
 
 checkTree2 :: Ord t => Tree t -> t -> Bool
+-- check if right subtree is a BST
 checkTree2 Nilt key = True
 checkTree2 (Node n subtree1 subtree2) key = (n > key) && (checkTree2 subtree1 key) && (checkTree2 subtree2 key)
 
 isBST :: Ord t => Tree t -> Bool
+-- check if a tree is a BST
 isBST Nilt = True
 isBST (Node n Nilt Nilt) = True
 isBST (Node n Nilt (Node p subtree21 subtree22)) = (checkTree2 (Node p subtree21 subtree22) n) && (isBST (Node p subtree21 subtree22))
